@@ -18,7 +18,7 @@ abstract class Repository{
   Future<Either<ServerFailure,void>> deleteAccount();
   Future<Either<ServerFailure,void>> resetPassword();
 
-  Future<Either<ServerFailure,List<QuizSubject>>> fetchQuizSubject();
+  Future<Either<ServerFailure,List<QuizSubject>>> fetchQuizSubjects();
   Future<Either<ServerFailure,List<QuizItem>>> fetchQuizItems();
 
   Future<Either<ServerFailure,int>> fetchPoints();
