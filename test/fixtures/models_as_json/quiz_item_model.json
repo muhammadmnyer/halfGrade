@@ -1,0 +1,31 @@
+ {
+    "exam_info": {
+      "id": 1,
+      "name": "a name",
+      "time_in_min": 90,
+      "questions_info": [
+        {
+          "id": 2,
+          "question": "a test question 1",
+          "a": "4",
+          "b": "5",
+          "c": "6",
+          "d": "7",
+          "correct_answer": "a",
+          "explanation": null,
+          "level": "hard"
+        },
+        {
+          "id": 3,
+          "question": "a test question 2",
+          "a": "8",
+          "b": "9",
+          "c": "10",
+          "d": "11",
+          "correct_answer": "b",
+          "explanation": "testing",
+          "level": "medium"
+        }
+      ]
+    }
+  }
