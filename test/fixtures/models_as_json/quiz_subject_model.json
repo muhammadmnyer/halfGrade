@@ -1,0 +1,11 @@
+{
+    "topics": ["first topic", "second topic"],
+    "subject": {
+      "subject_name": "subject",
+      "image_path": {
+        "id": "de8aa1fd-5b19-45cf-bd38-7ccfd77d8ee3",
+        "bucket_id":"cover_images",
+        "file_name": "testing/ui.png"
+      }
+    }
+}

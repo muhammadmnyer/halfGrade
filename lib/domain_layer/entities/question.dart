@@ -20,4 +20,21 @@ class Question{
     required this.explanation,
     required this.level,
   });
+
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+          other is Question &&
+              question == other.question &&
+              a == other.a &&
+              b == other.b &&
+              c == other.c &&
+              d == other.d &&
+              correctAnswer == other.correctAnswer &&
+              explanation == other.explanation &&
+              level == other.level;
+
+  @override
+  int get hashCode => 0;
+
 }

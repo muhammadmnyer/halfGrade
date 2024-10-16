@@ -1,6 +1,17 @@
 abstract class Failure{
   final String message;
   const Failure({required this.message});
+
+  @override
+  bool operator ==(Object other) {
+    return other is Failure&&
+    message == other.message;
+  }
+
+  @override
+  // TODO: implement hashCode
+  int get hashCode => 0;
+
 }
 
 class ServerFailure extends Failure{
