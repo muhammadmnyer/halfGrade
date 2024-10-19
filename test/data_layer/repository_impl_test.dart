@@ -1,4 +1,5 @@
 
+import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:half_grade/core/errors/exceptions.dart';
 import 'package:half_grade/core/errors/failures.dart';
@@ -93,6 +94,131 @@ void main(){
 
         },
   );
+
+  group('auth functionality',() {
+    
+    group('signUp functionality tests', () {
+      test('signUp success case', () async{
+
+        when(remoteDataSourceImpl.signUp(
+            email: 'muhammadmnyer@gmail.com',
+            password: 'password',
+            username: 'username',
+            schoolName: 'schoolName',
+            city: 'city'
+        )
+        ).thenAnswer((realInvocation) async{});
+
+        final response = await repository.signUp(
+            email: 'muhammadmnyer@gmail.com',
+            password: 'password',
+            username: 'username',
+            schoolName: 'schoolName',
+            city: 'city'
+        );
+
+        expect(response, const Right(null));
+
+      },);
+
+      test('signUp failure case', () async {
+
+        when(remoteDataSourceImpl.signUp(
+            email: 'muhammadmnyer@gmail.com',
+            password: 'password',
+            username: 'username',
+            schoolName: 'schoolName',
+            city: 'city')
+        ).thenThrow(const AuthException(message: 'message'));
+
+        final response = await repository.signUp(
+            email: 'muhammadmnyer@gmail.com',
+            password: 'password',
+            username: 'username',
+            schoolName: 'schoolName',
+            city: 'city'
+        );
+
+        expect(response, const Left(AuthFailure(message: 'message')));
+      },);
+
+    },);
+    
+    group('login functionality tests', () {
+      
+      test('login functionality success case', () async{
+
+        final response = await repository.login(email: 'muhammadmnyer@gmail.com', password: 'password');
+        expect(response, const Right(null));
+        verify(remoteDataSourceImpl.login(email: anyNamed('email'), password: 'password'));
+      
+        },);
+      
+      test('login functionality failure case', () async{
+
+        when(remoteDataSourceImpl.login(email: 'muhammadmnyer@gmail.com', password: 'password'))
+            .thenThrow(const AuthException(message: 'message'));
+
+        final response = await repository.login(email: 'muhammadmnyer@gmail.com', password: 'password');
+
+        expect(response, const Left(AuthFailure(message: 'message')));
+
+      },);
+      
+    },);
+    
+    group('delete account functionality tests', () {
+      
+      test('delete account functionality success case', ()async{
+        final response = await repository.deleteAccount();
+        expect(response, const Right(null));
+      });
+
+      test('delete account functionality failure case', () async{
+
+        when(
+          remoteDataSourceImpl.deleteAccount()
+        ).thenThrow(const AuthException(message: 'message'));
+        final response = await repository.deleteAccount();
+        expect(response, const Left(AuthFailure(message: 'message')));
+
+      },);
+      
+    },);
+
+    group('logout functionality tests', () {
+
+      test('logout success case', ()async{
+        final response = await repository.logout();
+        expect(response, const Right(null));
+      });
+
+      test('logout failure case', ()async{
+        when(remoteDataSourceImpl.logout())
+            .thenThrow(const AuthException(message: 'message'));
+        final response = await repository.logout();
+        expect(response, const Left(AuthFailure(message: 'message')));
+      });
+
+    },);
+
+    group('reset password functionality tests', () {
+
+      test('reset password success case', ()async{
+        final response = await repository.resetPassword(email: 'muhammadmnyer@gmail.com');
+        expect(response, const Right(null));
+      });
+
+      test('reset password failure case', ()async{
+        when(remoteDataSourceImpl.resetPassword(email: anyNamed('email')))
+            .thenThrow(const AuthException(message: 'message'));
+        final response = await repository.resetPassword(email: 'muhammadmnyer@gmail.com');
+        expect(response, const Left(AuthFailure(message: 'message')));
+      });
+
+    },);
+    
+  },);
 
 
 }
