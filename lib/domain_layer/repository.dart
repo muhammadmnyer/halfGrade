@@ -7,11 +7,17 @@ import 'package:dartz/dartz.dart';
 
 abstract class Repository{
 
-  Future<Either<ServerFailure,void>> signUp();
-  Future<Either<ServerFailure,void>> login();
-  Future<Either<ServerFailure,void>> logout();
-  Future<Either<ServerFailure,void>> deleteAccount();
-  Future<Either<ServerFailure,void>> resetPassword();
+  Future<Either<AuthFailure,void>> signUp({
+    required String email,
+    required String password,
+    required String username,
+    required String schoolName,
+    required String city
+  });
+  Future<Either<AuthFailure,void>> login({required String email,required String password});
+  Future<Either<AuthFailure,void>> logout();
+  Future<Either<AuthFailure,void>> deleteAccount();
+  Future<Either<AuthFailure,void>> resetPassword({required String email});
 
   Future<Either<ServerFailure,List<QuizSubject>>> fetchQuizSubjects();
   Future<Either<ServerFailure,List<QuizItem>>> fetchQuizItems({required String topic});
