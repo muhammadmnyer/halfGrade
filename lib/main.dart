@@ -4,6 +4,7 @@ import 'package:half_grade/core/routes.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 late SupabaseClient supabase;
+final GlobalKey<NavigatorState> bottomNav = GlobalKey();
 
 Future<void> main() async {
   runApp(const MyApp());
@@ -44,6 +45,7 @@ class MyApp extends StatelessWidget {
       builder: (context, child) {
         return BottomNavBarHolder(screen: child!,);
       },
+      navigatorKey: bottomNav,
       initialRoute: '/',
       onGenerateRoute: AppPages.bottomNavigationBarGenerateRoute,
     );
