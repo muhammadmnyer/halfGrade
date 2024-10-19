@@ -24,9 +24,13 @@ class RepositoryImpl implements Repository{
   }
 
   @override
-  Future<Either<ServerFailure, void>> deleteAccount() {
-    // TODO: implement deleteAccount
-    throw UnimplementedError();
+  Future<Either<AuthFailure, void>> deleteAccount() async{
+    try{
+      await _remoteDataSource.deleteAccount();
+      return const Right(null);
+    } on AuthException catch(e){
+      return Left(AuthFailure(message: e.message));
+    }
   }
 
   @override
@@ -67,28 +71,56 @@ class RepositoryImpl implements Repository{
   }
 
   @override
-  Future<Either<ServerFailure, void>> login() {
-    // TODO: implement login
-    throw UnimplementedError();
+  Future<Either<AuthFailure, void>> login({required String email,required String password}) async{
+    try{
+      await _remoteDataSource.login(email: email, password: password);
+      return const Right(null);
+    }on AuthException catch(e){
+      return Left(AuthFailure(message: e.message));
+    }
   }
 
   @override
-  Future<Either<ServerFailure, void>> logout() {
-    // TODO: implement logout
-    throw UnimplementedError();
+  Future<Either<AuthFailure, void>> logout() async{
+    try{
+      await _remoteDataSource.logout();
+      return const Right(null);
+    } on AuthException catch(e){
+      return Left(AuthFailure(message: e.message));
+    }
   }
 
 
   @override
-  Future<Either<ServerFailure, void>> resetPassword() {
-    // TODO: implement resetPassword
-    throw UnimplementedError();
+  Future<Either<AuthFailure, void>> resetPassword({required String email}) async{
+    try{
+      await _remoteDataSource.resetPassword(email: email);
+      return const Right(null);
+    } on AuthException catch(e){
+      return Left(AuthFailure(message: e.message));
+    }
   }
 
   @override
-  Future<Either<ServerFailure, void>> signUp() {
-    // TODO: implement signUp
-    throw UnimplementedError();
+  Future<Either<AuthFailure, void>> signUp({
+    required String email,
+    required String password,
+    required String username,
+    required String schoolName,
+    required String city
+}) async{
+    try{
+      await _remoteDataSource.signUp(
+          email: email,
+          password: password,
+          username: username,
+          schoolName: schoolName,
+          city: city
+      );
+      return const Right(null);
+    } on AuthException catch(e){
+      return Left(AuthFailure(message: e.message));
+    }
   }
 
   @override
