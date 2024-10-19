@@ -21,3 +21,7 @@ class ServerFailure extends Failure{
 class CacheFailure extends Failure{
   const CacheFailure({required super.message});
 }
+
+class AuthFailure extends Failure{
+  const AuthFailure({required super.message});
+}

@@ -10,3 +10,7 @@ class ServerException extends Exception{
 class CacheException extends Exception{
   const CacheException({required super.message});
 }
+
+class AuthException extends Exception{
+  const AuthException({required super.message});
+}
