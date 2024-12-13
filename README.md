@@ -43,6 +43,10 @@ Note: Please use the provided credentials to log in, as the signup functionality
 
 This project is a work in progress and is not fully finished. It is intended as a demonstration of my skills and potential to contribute effectively to professional development projects.
 
+### Important Design Note
+
+The app's design is primarily intended for mobile devices. It is hosted on the internet to simplify access, but its layout and features are optimized for a mobile user experience.
+
 ## Contact
 
 Feel free to reach out if you have any questions or would like to discuss potential job opportunities:
