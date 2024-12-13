@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "544090667400",
+    "project_id": "halfgrade-39f52",
+    "storage_bucket": "halfgrade-39f52.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:544090667400:android:032946ec392826687aa23d",
+        "android_client_info": {
+          "package_name": "com.example.half_grade"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAp6mOlmRPPSYAjh4l9cRbtAqIqpruAxKA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
