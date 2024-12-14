@@ -13,20 +13,10 @@ This project is designed as a portfolio piece to showcase my:
 - Application of Clean Architecture principles for code structure.
 - Implementation of Test-Driven Development (TDD) for robust functionality.
 - Integration of push notifications and deep linking for enhanced user engagement.
+- Featuring a user-friendly, responsive design enhanced with smooth and engaging animations to provide an exceptional user experience.
 
 
 Although the app is not fully complete, it is a practice project intended to demonstrate my capabilities and approach to development.
-
-## Features
-
-- **Design Patterns:** Implemented to ensure efficient and robust application performance.
-- **SOLID Principles:** Applied for clean, maintainable, and scalable code structure.
-- **Performance Optimization:** Analyzed and improved using Flutter DevTools.
-- **Supabase Backend:** Designed and integrated with normalized databases.
-- **Responsive UI:** The app is hosted as a website, ensuring accessibility across platforms.
-- **Exploration of Features:** Some features are left undisclosed for companies to discover.
-- **Push Notifications:** Implemented to keep users informed and engaged.
-- **Deep Linking:** Enabled for seamless navigation to specific app content.
 
 ## Live Demo
 
